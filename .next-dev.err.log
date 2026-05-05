@@ -1,0 +1,152 @@
+ ⨯ Error: GROQ query parse error:
+   6 |     shortDescription,
+   7 |     associatedEntity,
+>  8 |     capabilities[].label,
+     |                  ^^^^^^^^
+>  9 |     regulatoryRelevance,
+     | ^^^^ Attribute or a string key expected
+  10 |     order
+  11 |   }
+  12 |
+(traceId: d8e3a03d83f036a9fc4873e5427c436e)
+digest: "289514914"
+ ⨯ Error: GROQ query parse error:
+   6 |     shortDescription,
+   7 |     associatedEntity,
+>  8 |     capabilities[].label,
+     |                  ^^^^^^^^
+>  9 |     regulatoryRelevance,
+     | ^^^^ Attribute or a string key expected
+  10 |     order
+  11 |   }
+  12 |
+(traceId: d8e3a03d83f036a9fc4873e5427c436e)
+digest: "289514914"
+ ⨯ Error: GROQ query parse error:
+   6 |     shortDescription,
+   7 |     associatedEntity,
+>  8 |     capabilities[].label,
+     |                  ^^^^^^^^
+>  9 |     regulatoryRelevance,
+     | ^^^^ Attribute or a string key expected
+  10 |     order
+  11 |   }
+  12 |
+(traceId: 41d05f64c4882da8bc9bab23bc23bcf2)
+digest: "172480802"
+ ⨯ Error: GROQ query parse error:
+   6 |     shortDescription,
+   7 |     associatedEntity,
+>  8 |     capabilities[].label,
+     |                  ^^^^^^^^
+>  9 |     regulatoryRelevance,
+     | ^^^^ Attribute or a string key expected
+  10 |     order
+  11 |   }
+  12 |
+(traceId: 41d05f64c4882da8bc9bab23bc23bcf2)
+digest: "172480802"
+ ⨯ Internal error: Error: Objects are not valid as a React child (found: object with keys {_id, framework, issuingBody, lastReviewedDate, order, statement}). If you meant to render a collection of children, use an array instead.
+    at a_ (C:\salient-recovery\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:51035)
+    at aj (C:\salient-recovery\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:53793)
+    at C:\salient-recovery\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:42336
+    at aw (C:\salient-recovery\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:42822)
+    at a_ (C:\salient-recovery\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:49776)
+    at aj (C:\salient-recovery\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:53793)
+    at aC (C:\salient-recovery\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:52874)
+    at a_ (C:\salient-recovery\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:50095)
+    at aj (C:\salient-recovery\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:53793)
+    at C:\salient-recovery\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:42336
+    at aw (C:\salient-recovery\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:42822)
+    at a_ (C:\salient-recovery\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:49776)
+    at aj (C:\salient-recovery\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:53793)
+    at aC (C:\salient-recovery\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:52874)
+    at a_ (C:\salient-recovery\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:50095)
+    at aj (C:\salient-recovery\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:53793)
+    at C:\salient-recovery\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:42336
+    at aw (C:\salient-recovery\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:42822)
+    at a_ (C:\salient-recovery\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:49776)
+    at aj (C:\salient-recovery\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:53793)
+    at aC (C:\salient-recovery\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:52874)
+    at a_ (C:\salient-recovery\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:50095)
+    at aj (C:\salient-recovery\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:53793)
+    at C:\salient-recovery\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:42336
+    at aw (C:\salient-recovery\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:42822)
+    at a_ (C:\salient-recovery\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:49776)
+    at aj (C:\salient-recovery\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:53793)
+    at C:\salient-recovery\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:42336
+    at aw (C:\salient-recovery\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:42822)
+    at a_ (C:\salient-recovery\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:49776)
+    at aj (C:\salient-recovery\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:53793)
+    at aC (C:\salient-recovery\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:52874)
+    at a_ (C:\salient-recovery\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:50095)
+    at aj (C:\salient-recovery\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:53793)
+    at C:\salient-recovery\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:42336
+    at aw (C:\salient-recovery\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:42822)
+    at a_ (C:\salient-recovery\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:49776)
+    at a_ (C:\salient-recovery\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:50067)
+    at aj (C:\salient-recovery\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:53793)
+    at aC (C:\salient-recovery\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:52874)
+    at a_ (C:\salient-recovery\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:50095)
+    at aj (C:\salient-recovery\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:53793)
+    at aC (C:\salient-recovery\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:52874)
+    at a_ (C:\salient-recovery\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:50095)
+    at aw (C:\salient-recovery\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:45321)
+    at a_ (C:\salient-recovery\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:49776)
+    at ab (C:\salient-recovery\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:11808)
+    at C:\salient-recovery\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:16871
+    at aw (C:\salient-recovery\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:16908)
+    at a_ (C:\salient-recovery\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:49776)
+digest: "1607773165"
+ ⨯ Internal error: Error: Objects are not valid as a React child (found: object with keys {_id, framework, issuingBody, lastReviewedDate, order, statement}). If you meant to render a collection of children, use an array instead.
+    at a_ (C:\salient-recovery\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:51035)
+    at aj (C:\salient-recovery\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:53793)
+    at C:\salient-recovery\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:42336
+    at aw (C:\salient-recovery\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:42822)
+    at a_ (C:\salient-recovery\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:49776)
+    at aj (C:\salient-recovery\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:53793)
+    at aC (C:\salient-recovery\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:52874)
+    at a_ (C:\salient-recovery\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:50095)
+    at aj (C:\salient-recovery\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:53793)
+    at C:\salient-recovery\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:42336
+    at aw (C:\salient-recovery\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:42822)
+    at a_ (C:\salient-recovery\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:49776)
+    at aj (C:\salient-recovery\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:53793)
+    at aC (C:\salient-recovery\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:52874)
+    at a_ (C:\salient-recovery\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:50095)
+    at aj (C:\salient-recovery\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:53793)
+    at C:\salient-recovery\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:42336
+    at aw (C:\salient-recovery\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:42822)
+    at a_ (C:\salient-recovery\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:49776)
+    at aj (C:\salient-recovery\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:53793)
+    at aC (C:\salient-recovery\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:52874)
+    at a_ (C:\salient-recovery\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:50095)
+    at aj (C:\salient-recovery\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:53793)
+    at C:\salient-recovery\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:42336
+    at aw (C:\salient-recovery\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:42822)
+    at a_ (C:\salient-recovery\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:49776)
+    at aj (C:\salient-recovery\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:53793)
+    at C:\salient-recovery\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:42336
+    at aw (C:\salient-recovery\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:42822)
+    at a_ (C:\salient-recovery\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:49776)
+    at aj (C:\salient-recovery\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:53793)
+    at aC (C:\salient-recovery\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:52874)
+    at a_ (C:\salient-recovery\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:50095)
+    at aj (C:\salient-recovery\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:53793)
+    at C:\salient-recovery\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:42336
+    at aw (C:\salient-recovery\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:42822)
+    at a_ (C:\salient-recovery\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:49776)
+    at a_ (C:\salient-recovery\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:50067)
+    at aj (C:\salient-recovery\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:53793)
+    at aC (C:\salient-recovery\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:52874)
+    at a_ (C:\salient-recovery\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:50095)
+    at aj (C:\salient-recovery\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:53793)
+    at aC (C:\salient-recovery\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:52874)
+    at a_ (C:\salient-recovery\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:50095)
+    at aw (C:\salient-recovery\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:45321)
+    at a_ (C:\salient-recovery\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:49776)
+    at ab (C:\salient-recovery\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:11808)
+    at C:\salient-recovery\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:16871
+    at aw (C:\salient-recovery\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:16908)
+    at a_ (C:\salient-recovery\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:35:49776)
+digest: "1607773165"

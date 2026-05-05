@@ -1,0 +1,14 @@
+<svg width="220" height="56" viewBox="0 0 220 56" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Salient Recovery">
+  <title>Salient Recovery — Reversed</title>
+  <rect width="220" height="56" fill="#1e3c66"/>
+  <!-- Document mark -->
+  <path d="M8 8L37 8L51 22L51 48L8 48Z" fill="#F7F5F2"/>
+  <path d="M37 8L37 22L51 22Z" fill="rgba(247,245,242,0.5)"/>
+  <rect x="15" y="30" width="20" height="2.5" fill="rgba(30,60,102,0.4)" rx="0.5"/>
+  <rect x="15" y="37" width="14" height="2.5" fill="rgba(30,60,102,0.25)" rx="0.5"/>
+  <rect x="15" y="44" width="8" height="2.5" fill="rgba(30,60,102,0.15)" rx="0.5"/>
+  <!-- Wordmark -->
+  <text x="66" y="29" font-family="'Libre Baskerville', Georgia, 'Times New Roman', serif" font-size="20" font-weight="700" letter-spacing="5" fill="#F7F5F2">SALIENT</text>
+  <rect x="66" y="34" width="152" height="0.75" fill="rgba(247,245,242,0.25)"/>
+  <text x="67" y="48" font-family="'Libre Baskerville', Georgia, 'Times New Roman', serif" font-size="12" font-weight="400" letter-spacing="7" fill="#a8c4d8">RECOVERY</text>
+</svg>

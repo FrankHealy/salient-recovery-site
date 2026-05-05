@@ -1,0 +1,8 @@
+{
+  "/icon.svg/route": "app/icon.svg/route.js",
+  "/[locale]/page": "app/[locale]/page.js",
+  "/[locale]/platform/page": "app/[locale]/platform/page.js",
+  "/[locale]/how-it-works/page": "app/[locale]/how-it-works/page.js",
+  "/[locale]/resources/page": "app/[locale]/resources/page.js",
+  "/[locale]/resources/[slug]/page": "app/[locale]/resources/[slug]/page.js"
+}

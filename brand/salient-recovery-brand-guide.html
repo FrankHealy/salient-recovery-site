@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Salient Recovery — Brand Guidelines</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=IBM+Plex+Sans:wght@300;400;500&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --primary:   #1e3c66;
+    --primary-mid: #3d6ea8;
+    --primary-light: #4a7a9e;
+    --primary-pale: #c0cfe0;
+    --surface:   #F7F5F2;
+    --ink:       #1C1C1C;
+    --ink-mid:   #555;
+    --ink-light: #aaa;
+    --rule:      #e2ddd9;
+    --serif:     'Libre Baskerville', Georgia, serif;
+    --sans:      'IBM Plex Sans', system-ui, sans-serif;
+    --mono:      'IBM Plex Mono', monospace;
+  }
+
+  body {
+    font-family: var(--sans);
+    background: var(--surface);
+    color: var(--ink);
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  /* ---- cover ---- */
+  .cover {
+    background: var(--primary);
+    padding: 80px 72px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    min-height: 280px;
+  }
+  .cover-logo { display: flex; align-items: center; gap: 20px; }
+  .cover-wordmark .wm-s {
+    font-family: var(--serif);
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 6px;
+    color: var(--surface);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .cover-wordmark .wm-rule { height: 1px; background: rgba(247,245,242,0.25); margin-bottom: 6px; }
+  .cover-wordmark .wm-r {
+    font-family: var(--serif);
+    font-size: 13px;
+    letter-spacing: 8px;
+    color: #a8c4d8;
+    line-height: 1;
+  }
+  .cover-meta {
+    text-align: right;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: rgba(247,245,242,0.4);
+    letter-spacing: 0.06em;
+    line-height: 1.8;
+  }
+
+  /* ---- page content ---- */
+  .page { max-width: 900px; margin: 0 auto; padding: 64px 72px; }
+
+  h2 {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 8px;
+  }
+  .section-intro {
+    font-size: 14px;
+    color: var(--ink-mid);
+    max-width: 560px;
+    margin-bottom: 40px;
+    line-height: 1.7;
+  }
+
+  .section { margin-bottom: 72px; }
+  .section-rule { border: none; border-top: 1px solid var(--rule); margin-bottom: 40px; }
+
+  .label {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    margin-bottom: 16px;
+  }
+
+  /* ---- logo showcase ---- */
+  .logo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 40px; }
+  .logo-cell { padding: 48px 40px; display: flex; align-items: center; justify-content: center; border-radius: 4px; }
+  .logo-cell.light { background: var(--surface); border: 1px solid var(--rule); }
+  .logo-cell.dark  { background: var(--primary); }
+  .logo-cell.mid   { background: #2d5a94; }
+  .logo-cell.white { background: #fff; border: 1px solid var(--rule); }
+
+  .lockup { display: flex; align-items: center; gap: 18px; }
+  .lockup-stacked { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+  .wm-s { font-family: var(--serif); font-size: 22px; font-weight: 700; letter-spacing: 5px; line-height: 1; margin-bottom: 5px; }
+  .wm-rule { height: 0.75px; margin-bottom: 5px; }
+  .wm-r { font-family: var(--serif); font-size: 13px; font-weight: 400; letter-spacing: 7px; line-height: 1; }
+  .wm-stacked .wm-s { font-size: 17px; letter-spacing: 4px; text-align: center; }
+  .wm-stacked .wm-r { font-size: 11px; text-align: center; letter-spacing: 5px; }
+
+  /* ---- mark sizes ---- */
+  .mark-row { display: flex; align-items: flex-end; gap: 28px; }
+  .mark-item { text-align: center; }
+  .mark-size { font-family: var(--mono); font-size: 11px; color: var(--ink-light); margin-top: 8px; }
+
+  /* ---- clearspace ---- */
+  .clearspace-demo {
+    display: inline-flex;
+    padding: 24px;
+    border: 1.5px dashed var(--primary-pale);
+    border-radius: 2px;
+    position: relative;
+  }
+  .clearspace-label {
+    position: absolute;
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--primary-light);
+    letter-spacing: 0.05em;
+  }
+  .clearspace-label.top  { top: 4px; left: 50%; transform: translateX(-50%); }
+  .clearspace-label.left { left: 4px; top: 50%; transform: translateY(-50%) rotate(-90deg); }
+
+  /* ---- colours ---- */
+  .color-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .color-chip { border-radius: 4px; overflow: hidden; border: 1px solid var(--rule); }
+  .chip-swatch { height: 80px; }
+  .chip-info { padding: 10px 12px; background: #fff; }
+  .chip-name { font-size: 13px; font-weight: 500; margin-bottom: 2px; }
+  .chip-hex { font-family: var(--mono); font-size: 12px; color: var(--ink-mid); }
+  .chip-use { font-size: 11px; color: var(--ink-light); margin-top: 4px; }
+
+  /* ---- typography ---- */
+  .type-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .type-specimen { border-top: 3px solid var(--primary); padding-top: 16px; }
+  .type-display { font-size: 48px; line-height: 1; margin-bottom: 12px; color: var(--ink); }
+  .type-name { font-weight: 500; font-size: 13px; margin-bottom: 2px; }
+  .type-role { font-family: var(--mono); font-size: 11px; color: var(--ink-light); text-transform: uppercase; letter-spacing: 0.08em; }
+  .type-sample { margin-top: 12px; font-size: 13px; color: var(--ink-mid); line-height: 1.6; border-top: 1px solid var(--rule); padding-top: 12px; }
+
+  /* ---- usage ---- */
+  .usage-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .usage-card { border: 1px solid var(--rule); border-radius: 4px; overflow: hidden; }
+  .usage-label { font-family: var(--mono); font-size: 11px; color: var(--ink-light); text-transform: uppercase; letter-spacing: 0.08em; padding: 12px 16px; border-bottom: 1px solid var(--rule); background: #faf9f7; }
+
+  /* email sig */
+  .email-sig { padding: 20px; }
+  .sig-logo { display: flex; align-items: center; gap: 10px; padding-bottom: 14px; border-bottom: 1px solid var(--rule); margin-bottom: 14px; }
+  .sig-name { font-weight: 500; font-size: 14px; }
+  .sig-role { font-size: 12px; color: var(--ink-mid); margin-top: 2px; }
+  .sig-email { font-size: 12px; color: var(--primary-light); margin-top: 6px; }
+  .sig-tel { font-size: 12px; color: var(--ink-light); margin-top: 2px; }
+  .sig-platform { margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--rule); font-family: var(--mono); font-size: 11px; color: var(--ink-light); letter-spacing: 0.04em; }
+
+  /* doc header */
+  .doc-header { background: var(--primary); padding: 14px 20px; display: flex; align-items: center; justify-content: space-between; }
+  .doc-confid { font-family: var(--mono); font-size: 10px; color: rgba(247,245,242,0.4); letter-spacing: 0.1em; text-transform: uppercase; }
+  .doc-body { padding: 20px; }
+  .doc-title { font-family: var(--serif); font-size: 16px; color: var(--ink); margin-bottom: 4px; }
+  .doc-sub { font-size: 12px; color: var(--ink-light); }
+  .doc-field { margin-top: 14px; display: grid; grid-template-columns: 120px 1fr; gap: 8px; font-size: 12px; }
+  .doc-field dt { color: var(--ink-light); }
+  .doc-field dd { color: var(--ink-mid); font-weight: 500; }
+
+  /* letterhead */
+  .letterhead-header { background: var(--surface); border-bottom: 3px solid var(--primary); padding: 20px 24px; display: flex; justify-content: space-between; align-items: flex-end; }
+  .letterhead-addr { font-family: var(--mono); font-size: 10px; color: var(--ink-light); text-align: right; line-height: 1.6; }
+  .letterhead-body { padding: 20px 24px; }
+  .letterhead-date { font-family: var(--mono); font-size: 11px; color: var(--ink-light); margin-bottom: 14px; }
+  .letterhead-re { font-family: var(--serif); font-size: 13px; font-weight: 700; color: var(--primary); margin-bottom: 10px; }
+  .letterhead-text { font-size: 12px; color: var(--ink-mid); line-height: 1.7; }
+
+  /* ---- do / don't ---- */
+  .dd-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .dd-card { border-radius: 4px; padding: 20px; }
+  .dd-do   { background: #edf5ec; border: 1px solid #9ecf9a; }
+  .dd-dont { background: #fdf0f0; border: 1px solid #f5b8b8; }
+  .dd-tag  { font-family: var(--mono); font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 10px; }
+  .dd-do .dd-tag   { color: #2d7a28; }
+  .dd-dont .dd-tag { color: #b83232; }
+  .dd-text { font-size: 13px; color: var(--ink-mid); line-height: 1.6; }
+
+  /* ---- footer ---- */
+  .doc-footer {
+    background: var(--primary);
+    padding: 40px 72px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .doc-footer-meta {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: rgba(247,245,242,0.35);
+    line-height: 1.8;
+  }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-logo">
+    <svg width="52" height="66" viewBox="0 0 52 66" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0L35 0L52 17L52 66L0 66Z" fill="#F7F5F2"/>
+      <path d="M35 0L35 17L52 17Z" fill="rgba(247,245,242,0.45)"/>
+      <rect x="9" y="36" width="25" height="3.5" fill="rgba(30,60,102,0.4)" rx="0.5"/>
+      <rect x="9" y="45" width="17" height="3.5" fill="rgba(30,60,102,0.25)" rx="0.5"/>
+      <rect x="9" y="54" width="10" height="3.5" fill="rgba(30,60,102,0.15)" rx="0.5"/>
+    </svg>
+    <div class="cover-wordmark">
+      <div class="wm-s">SALIENT</div>
+      <div class="wm-rule"></div>
+      <div class="wm-r">RECOVERY</div>
+    </div>
+  </div>
+  <div class="cover-meta">
+    Brand Identity Guidelines<br>
+    Version 1.0 · 2026<br>
+    Salient Recovery Ltd.
+  </div>
+</div>
+
+<div class="page">
+
+  <!-- LOGO -->
+  <div class="section">
+    <p class="label">01 · The logo</p>
+    <h2>Primary lockup</h2>
+    <p class="section-intro">The Salient Recovery logo combines the Document Mark with a two-line wordmark set in Libre Baskerville. Use the horizontal lockup wherever space allows. Always maintain proportional scaling — never stretch or distort the logo.</p>
+    <hr class="section-rule">
+
+    <div style="margin-bottom: 12px;" class="label">Primary — on surface white</div>
+    <div class="logo-cell light" style="border-radius:4px; margin-bottom:12px; justify-content:flex-start; padding-left: 60px;">
+      <div class="lockup">
+        <svg width="52" height="66" viewBox="0 0 52 66" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0 0L35 0L52 17L52 66L0 66Z" fill="#1e3c66"/>
+          <path d="M35 0L35 17L52 17Z" fill="#3d6ea8"/>
+          <rect x="9" y="36" width="25" height="3.5" fill="rgba(255,255,255,0.55)" rx="0.5"/>
+          <rect x="9" y="45" width="17" height="3.5" fill="rgba(255,255,255,0.35)" rx="0.5"/>
+          <rect x="9" y="54" width="10" height="3.5" fill="rgba(255,255,255,0.2)" rx="0.5"/>
+        </svg>
+        <div>
+          <div class="wm-s" style="color:#1e3c66;">SALIENT</div>
+          <div class="wm-rule" style="background:#c0cfe0;"></div>
+          <div class="wm-r" style="color:#4a7a9e;">RECOVERY</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-bottom: 12px;" class="label">Reversed — on primary blue</div>
+    <div class="logo-cell dark" style="border-radius:4px; margin-bottom:12px; justify-content:flex-start; padding-left:60px;">
+      <div class="lockup">
+        <svg width="52" height="66" viewBox="0 0 52 66" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0 0L35 0L52 17L52 66L0 66Z" fill="#F7F5F2"/>
+          <path d="M35 0L35 17L52 17Z" fill="rgba(247,245,242,0.5)"/>
+          <rect x="9" y="36" width="25" height="3.5" fill="rgba(30,60,102,0.4)" rx="0.5"/>
+          <rect x="9" y="45" width="17" height="3.5" fill="rgba(30,60,102,0.25)" rx="0.5"/>
+          <rect x="9" y="54" width="10" height="3.5" fill="rgba(30,60,102,0.15)" rx="0.5"/>
+        </svg>
+        <div>
+          <div class="wm-s" style="color:#F7F5F2;">SALIENT</div>
+          <div class="wm-rule" style="background:rgba(247,245,242,0.25);"></div>
+          <div class="wm-r" style="color:#a8c4d8;">RECOVERY</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top: 40px;">
+      <div>
+        <div class="label">Stacked variant</div>
+        <div class="logo-cell light" style="border-radius:4px; flex-direction:column; gap: 14px; padding: 40px;">
+          <svg width="64" height="80" viewBox="0 0 52 66" fill="none">
+            <path d="M0 0L35 0L52 17L52 66L0 66Z" fill="#1e3c66"/>
+            <path d="M35 0L35 17L52 17Z" fill="#3d6ea8"/>
+            <rect x="9" y="36" width="25" height="3.5" fill="rgba(255,255,255,0.55)" rx="0.5"/>
+            <rect x="9" y="45" width="17" height="3.5" fill="rgba(255,255,255,0.35)" rx="0.5"/>
+            <rect x="9" y="54" width="10" height="3.5" fill="rgba(255,255,255,0.2)" rx="0.5"/>
+          </svg>
+          <div class="wm-stacked" style="text-align:center;">
+            <div style="font-family:var(--serif);font-size:17px;font-weight:700;letter-spacing:4px;color:#1e3c66;line-height:1;margin-bottom:5px;">SALIENT</div>
+            <div style="height:0.75px;background:#c0cfe0;margin-bottom:5px;width:120px;"></div>
+            <div style="font-family:var(--serif);font-size:11px;letter-spacing:5px;color:#4a7a9e;line-height:1;">RECOVERY</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="label">Mark only — favicon</div>
+        <div class="logo-cell light" style="border-radius:4px; gap:28px; padding:40px;">
+          <div style="text-align:center;">
+            <svg width="52" height="66" viewBox="0 0 52 66" fill="none">
+              <path d="M0 0L35 0L52 17L52 66L0 66Z" fill="#1e3c66"/>
+              <path d="M35 0L35 17L52 17Z" fill="#3d6ea8"/>
+            </svg>
+            <div class="mark-size">Full</div>
+          </div>
+          <div style="text-align:center;">
+            <svg width="32" height="41" viewBox="0 0 52 66" fill="none">
+              <path d="M0 0L35 0L52 17L52 66L0 66Z" fill="#1e3c66"/>
+              <path d="M35 0L35 17L52 17Z" fill="#3d6ea8"/>
+            </svg>
+            <div class="mark-size">32px</div>
+          </div>
+          <div style="text-align:center;">
+            <svg width="20" height="26" viewBox="0 0 52 66" fill="none">
+              <path d="M0 0L35 0L52 17L52 66L0 66Z" fill="#1e3c66"/>
+              <path d="M35 0L35 17L52 17Z" fill="#3d6ea8"/>
+            </svg>
+            <div class="mark-size">16px</div>
+          </div>
+          <div style="background:#1e3c66;padding:12px;border-radius:4px;text-align:center;">
+            <svg width="32" height="41" viewBox="0 0 52 66" fill="none">
+              <path d="M0 0L35 0L52 17L52 66L0 66Z" fill="#F7F5F2"/>
+              <path d="M35 0L35 17L52 17Z" fill="rgba(247,245,242,0.5)"/>
+            </svg>
+            <div class="mark-size" style="color:rgba(255,255,255,0.4);">Rev.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- COLOURS -->
+  <div class="section">
+    <p class="label">02 · Colour</p>
+    <h2>Brand palette</h2>
+    <p class="section-intro">Four colours form the entire brand palette. Primary Blue is the dominant colour — it anchors every touchpoint. Surface White provides breathing room. Ink is reserved for body text only. Mid Blue appears in secondary typography and UI accents.</p>
+    <hr class="section-rule">
+    <div class="color-grid">
+      <div class="color-chip">
+        <div class="chip-swatch" style="background:#1e3c66;"></div>
+        <div class="chip-info">
+          <div class="chip-name">Primary Blue</div>
+          <div class="chip-hex">#1e3c66</div>
+          <div class="chip-use">Logo · headers · dark bg</div>
+        </div>
+      </div>
+      <div class="color-chip">
+        <div class="chip-swatch" style="background:#F7F5F2; border-bottom:1px solid var(--rule);"></div>
+        <div class="chip-info">
+          <div class="chip-name">Surface White</div>
+          <div class="chip-hex">#F7F5F2</div>
+          <div class="chip-use">Page bg · reversed text</div>
+        </div>
+      </div>
+      <div class="color-chip">
+        <div class="chip-swatch" style="background:#1C1C1C;"></div>
+        <div class="chip-info">
+          <div class="chip-name">Ink</div>
+          <div class="chip-hex">#1C1C1C</div>
+          <div class="chip-use">Body text only</div>
+        </div>
+      </div>
+      <div class="color-chip">
+        <div class="chip-swatch" style="background:#4a7a9e;"></div>
+        <div class="chip-info">
+          <div class="chip-name">Mid Blue</div>
+          <div class="chip-hex">#4a7a9e</div>
+          <div class="chip-use">Secondary type · accents</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TYPOGRAPHY -->
+  <div class="section">
+    <p class="label">03 · Typography</p>
+    <h2>Type system</h2>
+    <p class="section-intro">Three typefaces. Each has a specific role — do not substitute or mix roles. All three are available as free Google Fonts.</p>
+    <hr class="section-rule">
+    <div class="type-grid">
+      <div class="type-specimen">
+        <div class="type-display" style="font-family:var(--serif);">Aa</div>
+        <div class="type-name">Libre Baskerville</div>
+        <div class="type-role">Headings · wordmark</div>
+        <div class="type-sample" style="font-family:var(--serif);">
+          A confident, institutional serif. Used for all headings, the wordmark, and document titles.
+        </div>
+      </div>
+      <div class="type-specimen">
+        <div class="type-display" style="font-family:var(--sans); font-weight:300;">Aa</div>
+        <div class="type-name">IBM Plex Sans</div>
+        <div class="type-role">Body copy · navigation</div>
+        <div class="type-sample" style="font-family:var(--sans);">
+          Clean and legible at all sizes. Use weights 300–500 only. No bold in body copy.
+        </div>
+      </div>
+      <div class="type-specimen">
+        <div class="type-display" style="font-family:var(--mono);">Aa</div>
+        <div class="type-name">IBM Plex Mono</div>
+        <div class="type-role">Labels · data · codes</div>
+        <div class="type-sample" style="font-family:var(--mono);">
+          Reserved for labels, metadata, reference codes, and any data output.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- USAGE -->
+  <div class="section">
+    <p class="label">04 · Usage examples</p>
+    <h2>Brand in use</h2>
+    <p class="section-intro">The logo should feel quiet and authoritative across every touchpoint. Consistent placement, generous whitespace, and restrained colour use.</p>
+    <hr class="section-rule">
+
+    <div class="usage-grid" style="margin-bottom: 24px;">
+
+      <!-- Email signature -->
+      <div class="usage-card">
+        <div class="usage-label">Email signature</div>
+        <div class="email-sig">
+          <div class="sig-logo">
+            <svg width="22" height="28" viewBox="0 0 52 66" fill="none">
+              <path d="M0 0L35 0L52 17L52 66L0 66Z" fill="#1e3c66"/>
+              <path d="M35 0L35 17L52 17Z" fill="#3d6ea8"/>
+            </svg>
+            <div>
+              <div style="font-family:var(--serif);font-size:13px;font-weight:700;letter-spacing:3px;color:#1e3c66;line-height:1;margin-bottom:4px;">SALIENT</div>
+              <div style="height:0.75px;background:#c0cfe0;margin-bottom:4px;"></div>
+              <div style="font-family:var(--serif);font-size:10px;letter-spacing:4px;color:#4a7a9e;line-height:1;">RECOVERY</div>
+            </div>
+          </div>
+          <div class="sig-name">Aoife Ní Mhurchú</div>
+          <div class="sig-role">Clinical Partnerships Lead</div>
+          <div class="sig-email">aoife@salientrecovery.ie</div>
+          <div class="sig-tel">+353 1 234 5678</div>
+          <div class="sig-platform">Acutis · Clinical Operations Platform</div>
+        </div>
+      </div>
+
+      <!-- Document header -->
+      <div class="usage-card">
+        <div class="usage-label">Document header</div>
+        <div class="doc-header">
+          <div style="display:flex;align-items:center;gap:12px;">
+            <svg width="18" height="22" viewBox="0 0 52 66" fill="none">
+              <path d="M0 0L35 0L52 17L52 66L0 66Z" fill="#F7F5F2"/>
+              <path d="M35 0L35 17L52 17Z" fill="rgba(247,245,242,0.5)"/>
+            </svg>
+            <div>
+              <div style="font-family:var(--serif);font-size:13px;font-weight:700;letter-spacing:3px;color:#F7F5F2;line-height:1;margin-bottom:4px;">SALIENT</div>
+              <div style="font-family:var(--serif);font-size:10px;letter-spacing:4px;color:#a8c4d8;line-height:1;">RECOVERY</div>
+            </div>
+          </div>
+          <div class="doc-confid">Confidential</div>
+        </div>
+        <div class="doc-body">
+          <div class="doc-title">Service Assessment Report</div>
+          <div class="doc-sub">St. Brigid's Residential Services</div>
+          <dl class="doc-field">
+            <dt>Prepared by</dt><dd>Aoife Ní Mhurchú</dd>
+            <dt>Date</dt><dd>May 2026</dd>
+            <dt>Reference</dt><dd>SAR-2026-047</dd>
+          </dl>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Letterhead -->
+    <div class="usage-card">
+      <div class="usage-label">Letterhead</div>
+      <div class="letterhead-header">
+        <div style="display:flex;align-items:center;gap:14px;">
+          <svg width="30" height="38" viewBox="0 0 52 66" fill="none">
+            <path d="M0 0L35 0L52 17L52 66L0 66Z" fill="#1e3c66"/>
+            <path d="M35 0L35 17L52 17Z" fill="#3d6ea8"/>
+          </svg>
+          <div>
+            <div style="font-family:var(--serif);font-size:16px;font-weight:700;letter-spacing:4px;color:#1e3c66;line-height:1;margin-bottom:5px;">SALIENT</div>
+            <div style="height:0.75px;background:#c0cfe0;margin-bottom:5px;"></div>
+            <div style="font-family:var(--serif);font-size:11px;letter-spacing:5px;color:#4a7a9e;line-height:1;">RECOVERY</div>
+          </div>
+        </div>
+        <div class="letterhead-addr">
+          Salient Recovery Ltd.<br>
+          salientrecovery.ie<br>
+          hello@salientrecovery.ie
+        </div>
+      </div>
+      <div class="letterhead-body">
+        <div class="letterhead-date">12 May 2026</div>
+        <div class="letterhead-re">Re: Acutis Platform Onboarding — Q3 2026</div>
+        <div class="letterhead-text">
+          Dear Ms. Walsh, thank you for your continued interest in the Acutis clinical operations platform.
+          Following our initial consultation, I am pleased to confirm that your onboarding has been scheduled
+          for the third quarter of 2026, subject to the completion of the data processing agreement...
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DO / DON'T -->
+  <div class="section">
+    <p class="label">05 · Rules</p>
+    <h2>Do and don't</h2>
+    <hr class="section-rule">
+    <div class="dd-grid">
+      <div class="dd-card dd-do">
+        <div class="dd-tag">Do</div>
+        <div class="dd-text">Use the logo on Primary Blue, Surface White, or plain white only.</div>
+      </div>
+      <div class="dd-card dd-dont">
+        <div class="dd-tag">Don't</div>
+        <div class="dd-text">Place the logo on colourful, patterned, or photographic backgrounds.</div>
+      </div>
+      <div class="dd-card dd-do">
+        <div class="dd-tag">Do</div>
+        <div class="dd-text">Maintain clear space equal to the height of the "S" in SALIENT on all sides.</div>
+      </div>
+      <div class="dd-card dd-dont">
+        <div class="dd-tag">Don't</div>
+        <div class="dd-text">Stretch, rotate, recolour, or rearrange any element of the logo.</div>
+      </div>
+      <div class="dd-card dd-do">
+        <div class="dd-tag">Do</div>
+        <div class="dd-text">Use the mark alone (without wordmark) only at sizes below 40px or in favicon contexts.</div>
+      </div>
+      <div class="dd-card dd-dont">
+        <div class="dd-tag">Don't</div>
+        <div class="dd-text">Use gradients, drop shadows, or decorative effects on or around the logo.</div>
+      </div>
+      <div class="dd-card dd-do">
+        <div class="dd-tag">Do</div>
+        <div class="dd-text">Always use the reversed (white) variant when placing the logo on Primary Blue backgrounds.</div>
+      </div>
+      <div class="dd-card dd-dont">
+        <div class="dd-tag">Don't</div>
+        <div class="dd-text">Use any typeface other than Libre Baskerville in the wordmark, even for internal documents.</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="doc-footer">
+  <div style="display:flex;align-items:center;gap:14px;">
+    <svg width="22" height="28" viewBox="0 0 52 66" fill="none">
+      <path d="M0 0L35 0L52 17L52 66L0 66Z" fill="rgba(247,245,242,0.5)"/>
+      <path d="M35 0L35 17L52 17Z" fill="rgba(247,245,242,0.25)"/>
+    </svg>
+    <div style="font-family:var(--serif);font-size:12px;font-weight:700;letter-spacing:3px;color:rgba(247,245,242,0.4);">SALIENT RECOVERY</div>
+  </div>
+  <div class="doc-footer-meta">
+    Brand Identity Guidelines v1.0<br>
+    © 2026 Salient Recovery Ltd. All rights reserved.<br>
+    Internal use only — do not distribute
+  </div>
+</div>
+
+</body>
+</html>

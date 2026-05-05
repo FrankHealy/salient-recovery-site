@@ -1,0 +1,8 @@
+<svg width="60" height="76" viewBox="0 0 60 76" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Salient Recovery mark">
+  <title>Salient Recovery — Mark</title>
+  <path d="M0 0L39 0L60 20L60 76L0 76Z" fill="#1e3c66"/>
+  <path d="M39 0L39 20L60 20Z" fill="#3d6ea8"/>
+  <rect x="9" y="38" width="28" height="3.5" fill="rgba(255,255,255,0.55)" rx="0.5"/>
+  <rect x="9" y="47" width="20" height="3.5" fill="rgba(255,255,255,0.35)" rx="0.5"/>
+  <rect x="9" y="57" width="12" height="3.5" fill="rgba(255,255,255,0.2)" rx="0.5"/>
+</svg>

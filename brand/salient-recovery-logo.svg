@@ -1,0 +1,13 @@
+<svg width="220" height="56" viewBox="0 0 220 56" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Salient Recovery">
+  <title>Salient Recovery</title>
+  <!-- Document mark -->
+  <path d="M0 0L29 0L43 14L43 56L0 56Z" fill="#1e3c66"/>
+  <path d="M29 0L29 14L43 14Z" fill="#3d6ea8"/>
+  <rect x="7" y="27" width="20" height="2.5" fill="rgba(255,255,255,0.55)" rx="0.5"/>
+  <rect x="7" y="34" width="14" height="2.5" fill="rgba(255,255,255,0.35)" rx="0.5"/>
+  <rect x="7" y="41" width="8" height="2.5" fill="rgba(255,255,255,0.2)" rx="0.5"/>
+  <!-- Wordmark -->
+  <text x="58" y="28" font-family="'Libre Baskerville', Georgia, 'Times New Roman', serif" font-size="20" font-weight="700" letter-spacing="5" fill="#1e3c66">SALIENT</text>
+  <rect x="58" y="33" width="152" height="0.75" fill="#c0cfe0"/>
+  <text x="59" y="47" font-family="'Libre Baskerville', Georgia, 'Times New Roman', serif" font-size="12" font-weight="400" letter-spacing="7" fill="#4a7a9e">RECOVERY</text>
+</svg>

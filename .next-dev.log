@@ -1,0 +1,105 @@
+
+> salient-recovery@0.1.0 dev
+> next dev
+
+  ▲ Next.js 14.2.3
+  - Local:        http://localhost:3000
+  - Environments: .env.local
+  - Experiments (use with caution):
+    · typedRoutes
+
+ ✓ Starting...
+ ✓ Ready in 5.4s
+ ○ Compiling /[locale]/resources ...
+ ✓ Compiled /[locale]/resources in 21.1s (4672 modules)
+ HEAD /en 500 in 23010ms
+ HEAD /en/resources 200 in 23060ms
+ GET /en 500 in 225ms
+ ✓ Compiled in 3.8s (2921 modules)
+ HEAD /en/resources 200 in 354ms
+ HEAD /en 200 in 1680ms
+ GET /en 200 in 73ms
+ GET /en 200 in 256ms
+ ○ Compiling /[locale]/about ...
+ ✓ Compiled /[locale]/about in 2.5s (4674 modules)
+ ✓ Compiled in 602ms (1752 modules)
+ GET /en/about 200 in 3820ms
+ ○ Compiling /[locale]/contact ...
+ ✓ Compiled /[locale]/contact in 1020ms (4662 modules)
+ GET /en/contact 200 in 2288ms
+ ○ Compiling /[locale]/how-it-works ...
+ ✓ Compiled /[locale]/how-it-works in 1925ms (4665 modules)
+ GET /en/how-it-works 200 in 3288ms
+ ○ Compiling /[locale]/platform ...
+ ✓ Compiled /[locale]/platform in 908ms (4667 modules)
+ GET /en/platform 200 in 2018ms
+ ○ Compiling /[locale]/platform/forms ...
+ ✓ Compiled /[locale]/platform/forms in 904ms (4669 modules)
+ GET /en/platform/forms 200 in 2407ms
+ ○ Compiling /[locale]/platform/facility-mapping ...
+ ✓ Compiled /[locale]/platform/facility-mapping in 1154ms (4671 modules)
+ GET /en/platform/facility-mapping 200 in 2668ms
+ ○ Compiling /[locale]/platform/timeline ...
+ ✓ Compiled /[locale]/platform/timeline in 1634ms (4673 modules)
+ GET /en/platform/timeline 200 in 2772ms
+ ○ Compiling /[locale]/platform/audit-compliance ...
+ ✓ Compiled /[locale]/platform/audit-compliance in 1360ms (4675 modules)
+ GET /en/platform/audit-compliance 500 in 2516ms
+ ○ Compiling /[locale]/sectors ...
+ ✓ Compiled /[locale]/sectors in 1024ms (4677 modules)
+ GET /en/sectors 200 in 2072ms
+ ○ Compiling /[locale]/resources ...
+ ✓ Compiled /[locale]/resources in 1461ms (2941 modules)
+ GET /en/resources 200 in 1810ms
+ ○ Compiling /[locale]/resources/[slug] ...
+ ✓ Compiled /[locale]/resources/[slug] in 1541ms (4682 modules)
+ GET /en/resources/preparing-for-a-hiqa-inspection 200 in 4098ms
+ GET /en/platform/audit-compliance 500 in 181ms
+ ✓ Compiled in 2.5s (4678 modules)
+ HEAD /en/platform/audit-compliance 200 in 719ms
+ ○ Compiling /[locale] ...
+ ✓ Compiled /[locale] in 1110ms (2926 modules)
+ GET /en 200 in 1566ms
+ ○ Compiling /[locale]/about ...
+ ✓ Compiled /[locale]/about in 785ms (2929 modules)
+ GET /en/about 200 in 1022ms
+ ○ Compiling /[locale]/contact ...
+ ✓ Compiled /[locale]/contact in 743ms (2931 modules)
+ GET /en/contact 200 in 1016ms
+ ○ Compiling /[locale]/how-it-works ...
+ ✓ Compiled /[locale]/how-it-works in 813ms (2934 modules)
+ GET /en/how-it-works 200 in 1209ms
+ ○ Compiling /[locale]/platform ...
+ ✓ Compiled /[locale]/platform in 933ms (2936 modules)
+ GET /en/platform 200 in 1301ms
+ ○ Compiling /[locale]/platform/forms ...
+ ✓ Compiled /[locale]/platform/forms in 868ms (2938 modules)
+ GET /en/platform/forms 200 in 1168ms
+ ○ Compiling /[locale]/platform/facility-mapping ...
+ ✓ Compiled /[locale]/platform/facility-mapping in 986ms (2940 modules)
+ GET /en/platform/facility-mapping 200 in 1280ms
+ ○ Compiling /[locale]/platform/timeline ...
+ ✓ Compiled /[locale]/platform/timeline in 948ms (2942 modules)
+ GET /en/platform/timeline 200 in 1219ms
+ GET /en/platform/audit-compliance 200 in 171ms
+ ○ Compiling /[locale]/sectors ...
+ ✓ Compiled /[locale]/sectors in 1269ms (2944 modules)
+ GET /en/sectors 200 in 1682ms
+ GET /en/resources 200 in 168ms
+ GET /en/resources/preparing-for-a-hiqa-inspection 200 in 142ms
+ ○ Compiling / ...
+ ✓ Compiled / in 3.2s (1973 modules)
+ GET / 307 in 3758ms
+ ○ Compiling /[locale] ...
+ ✓ Compiled /[locale] in 919ms (2921 modules)
+ GET /en 200 in 3034ms
+ GET /favicon.ico 404 in 267ms
+ ○ Compiling /[locale]/platform ...
+ ✓ Compiled /[locale]/platform in 791ms (2921 modules)
+ ✓ Compiled /[locale]/how-it-works in 418ms (2924 modules)
+ ○ Compiling /[locale]/sectors ...
+ ✓ Compiled /[locale]/sectors in 1800ms (2926 modules)
+ ○ Compiling /[locale]/resources ...
+ ✓ Compiled /[locale]/resources in 1191ms (2928 modules)
+ ○ Compiling /[locale]/resources/[slug] ...
+ ✓ Compiled /[locale]/resources/[slug] in 527ms (2931 modules)
