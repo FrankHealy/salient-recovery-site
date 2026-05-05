@@ -103,3 +103,8 @@
  ✓ Compiled /[locale]/resources in 1191ms (2928 modules)
  ○ Compiling /[locale]/resources/[slug] ...
  ✓ Compiled /[locale]/resources/[slug] in 527ms (2931 modules)
+ ○ Compiling /icon.svg ...
+ ✓ Compiled /icon.svg in 12s (4767 modules)
+ HEAD /icon.svg 200 in 3496ms
+ GET /en 200 in 4033ms
+[?25h

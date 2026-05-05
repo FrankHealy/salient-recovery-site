@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { client } from '../../../../../sanity/client';
-import { RESOURCE_BY_SLUG_QUERY } from '@sanity/queries';
+import { RESOURCE_BY_SLUG_QUERY } from '@cms/queries';
 import type { ResourceArticle } from '@/lib/types';
 import type { Locale } from '@/lib/i18n';
 import { t, tBlock } from '@/lib/i18n';

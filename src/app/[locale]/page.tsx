@@ -5,7 +5,7 @@ import {
   ALL_PLATFORM_FEATURES_QUERY,
   ALL_SECTORS_QUERY,
   REVIEWED_SIGNALS_QUERY,
-} from '@sanity/queries';
+} from '@cms/queries';
 import type { PlatformFeature, SectorPage, ExternalSignal } from '@/lib/types';
 import type { Locale } from '@/lib/i18n';
 import { t } from '@/lib/i18n';

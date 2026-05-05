@@ -2,7 +2,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { client } from '../../../../../sanity/client';
-import { PLATFORM_FEATURES_BY_ENTITY_QUERY } from '@sanity/queries';
+import { PLATFORM_FEATURES_BY_ENTITY_QUERY } from '@cms/queries';
 import type { PlatformFeature } from '@/lib/types';
 import type { Locale } from '@/lib/i18n';
 import { t } from '@/lib/i18n';

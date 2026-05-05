@@ -2,7 +2,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { client } from '../../../../sanity/client';
-import { ALL_PLATFORM_FEATURES_QUERY, ALL_COMPLIANCE_QUERY } from '@sanity/queries';
+import { ALL_PLATFORM_FEATURES_QUERY, ALL_COMPLIANCE_QUERY } from '@cms/queries';
 import type { PlatformFeature, ComplianceStatement } from '@/lib/types';
 import type { Locale } from '@/lib/i18n';
 import { t } from '@/lib/i18n';

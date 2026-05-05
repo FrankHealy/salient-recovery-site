@@ -7,7 +7,7 @@ import {
   REVIEWED_RESEARCH_QUERY,
   REVIEWED_POLICY_UPDATES_QUERY,
   LATEST_DIGEST_QUERY,
-} from '@sanity/queries';
+} from '@cms/queries';
 import type { ResourceArticle, ExternalSignal, ResearchPaperSummary, PolicyUpdate, WeeklyDigest } from '@/lib/types';
 import type { Locale } from '@/lib/i18n';
 import { t } from '@/lib/i18n';

@@ -2,6 +2,7 @@
 'use client';
 
 import { usePathname, useRouter } from 'next/navigation';
+import type { Route } from 'next';
 import type { Locale } from '@/lib/i18n';
 import { LOCALES, LOCALE_LABELS } from '@/lib/i18n';
 
@@ -18,7 +19,7 @@ export default function LocaleSwitch({ currentLocale }: Props) {
     // Replace the locale segment in the current path
     const segments = pathname.split('/');
     segments[1] = next;
-    router.push(segments.join('/'));
+    router.push(segments.join('/') as Route);
   };
 
   return (

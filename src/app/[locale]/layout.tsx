@@ -4,7 +4,7 @@ import type { ReactNode } from 'react';
 import { notFound } from 'next/navigation';
 import { isValidLocale } from '@/lib/i18n';
 import { client } from '../../../sanity/client';
-import { SITE_SETTINGS_QUERY, NAV_ITEMS_QUERY } from '@sanity/queries';
+import { SITE_SETTINGS_QUERY, NAV_ITEMS_QUERY } from '@cms/queries';
 import type { SiteSettings, NavItem } from '@/lib/types';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';

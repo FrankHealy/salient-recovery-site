@@ -1,0 +1,11 @@
+.git
+.gitignore
+.next
+.next-dev.log
+.next-dev.err.log
+node_modules
+npm-debug.log*
+.env.local
+.env.*.local
+seed
+brand

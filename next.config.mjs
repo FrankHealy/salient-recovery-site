@@ -1,4 +1,5 @@
 const nextConfig = {
+  output: 'standalone',
   images: {
     remotePatterns: [
       {
@@ -6,9 +7,6 @@ const nextConfig = {
         hostname: 'cdn.sanity.io',
       },
     ],
-  },
-  experimental: {
-    typedRoutes: true,
   },
 };
 

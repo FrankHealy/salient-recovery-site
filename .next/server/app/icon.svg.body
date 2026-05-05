@@ -1,0 +1,8 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Salient Recovery">
+  <title>Salient Recovery</title>
+  <rect width="32" height="32" rx="6" fill="#1e3c66"/>
+  <path d="M5 4L21 4L28 11L28 28L5 28Z" fill="#F7F5F2"/>
+  <path d="M21 4L21 11L28 11Z" fill="rgba(247,245,242,0.5)"/>
+  <rect x="8" y="16" width="13" height="2" fill="rgba(30,60,102,0.45)" rx="0.5"/>
+  <rect x="8" y="21" width="9" height="2" fill="rgba(30,60,102,0.3)" rx="0.5"/>
+</svg>
