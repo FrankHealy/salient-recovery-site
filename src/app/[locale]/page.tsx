@@ -1,11 +1,11 @@
 // src/app/[locale]/page.tsx
 import Link from 'next/link';
-import { client } from '../../../sanity/client';
+import { client } from '@/lib/sanity/client';
 import {
   ALL_PLATFORM_FEATURES_QUERY,
   ALL_SECTORS_QUERY,
   REVIEWED_SIGNALS_QUERY,
-} from '@cms/queries';
+} from '@/lib/sanity/queries';
 import type { PlatformFeature, SectorPage, ExternalSignal } from '@/lib/types';
 import type { Locale } from '@/lib/i18n';
 import { t } from '@/lib/i18n';

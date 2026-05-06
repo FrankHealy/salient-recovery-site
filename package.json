@@ -6,18 +6,15 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "sanity": "sanity dev"
+    "lint": "next lint"
   },
   "dependencies": {
     "@portabletext/react": "^3.1.0",
-    "@sanity/client": "^6.15.0",
     "@sanity/image-url": "^1.0.2",
     "next": "14.2.3",
     "next-sanity": "^9.0.0",
     "react": "^18",
-    "react-dom": "^18",
-    "sanity": "^3.36.0"
+    "react-dom": "^18"
   },
   "devDependencies": {
     "@types/node": "^20",

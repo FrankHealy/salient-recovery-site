@@ -1,8 +1,8 @@
 // src/app/[locale]/how-it-works/page.tsx
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { client } from '../../../../sanity/client';
-import { ALL_WORKFLOW_STEPS_QUERY } from '@cms/queries';
+import { client } from '@/lib/sanity/client';
+import { ALL_WORKFLOW_STEPS_QUERY } from '@/lib/sanity/queries';
 import type { WorkflowStep, WorkflowType } from '@/lib/types';
 import type { Locale } from '@/lib/i18n';
 import { PageHero, SectionHeader } from '@/components/ui/index';

@@ -1,7 +1,7 @@
 // src/app/[locale]/contact/page.tsx
 import type { Metadata } from 'next';
-import { client } from '../../../../sanity/client';
-import { SITE_SETTINGS_QUERY } from '@cms/queries';
+import { client } from '@/lib/sanity/client';
+import { SITE_SETTINGS_QUERY } from '@/lib/sanity/queries';
 import type { SiteSettings } from '@/lib/types';
 import type { Locale } from '@/lib/i18n';
 import { t } from '@/lib/i18n';

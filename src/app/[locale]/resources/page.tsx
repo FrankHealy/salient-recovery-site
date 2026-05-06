@@ -1,13 +1,13 @@
 // src/app/[locale]/resources/page.tsx
 import type { Metadata } from 'next';
-import { client } from '../../../../sanity/client';
+import { client } from '@/lib/sanity/client';
 import {
   ALL_RESOURCES_QUERY,
   REVIEWED_SIGNALS_QUERY,
   REVIEWED_RESEARCH_QUERY,
   REVIEWED_POLICY_UPDATES_QUERY,
   LATEST_DIGEST_QUERY,
-} from '@cms/queries';
+} from '@/lib/sanity/queries';
 import type { ResourceArticle, ExternalSignal, ResearchPaperSummary, PolicyUpdate, WeeklyDigest } from '@/lib/types';
 import type { Locale } from '@/lib/i18n';
 import { t } from '@/lib/i18n';

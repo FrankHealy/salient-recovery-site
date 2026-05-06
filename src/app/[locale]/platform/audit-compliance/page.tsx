@@ -1,5 +1,5 @@
-import { client } from '../../../../../sanity/client'
-import { ALL_PLATFORM_FEATURES_QUERY, ALL_COMPLIANCE_QUERY } from '@cms/queries'
+import { client } from '@/lib/sanity/client'
+import { ALL_PLATFORM_FEATURES_QUERY, ALL_COMPLIANCE_QUERY } from '@/lib/sanity/queries'
 import { PlatformFeature, ComplianceStatement } from '@/lib/types'
 import { t } from '@/lib/i18n'
 import { PageHero, SectionHeader, FeatureBlock, ComplianceBadge } from '@/components/ui'

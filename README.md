@@ -1,13 +1,13 @@
-# Salient Recovery — Public Site
+# Salient Recovery Public Site
 
-A professional, multilingual public website for Salient Recovery / Acutis clinical operations platform.
+A multilingual Next.js public website for the Salient Recovery / Acutis platform.
 
 ## Tech Stack
 
-- **Next.js 14** (App Router)
-- **TypeScript**
-- **Tailwind CSS**
-- **Sanity CMS** (content management)
+- Next.js 14
+- TypeScript
+- Tailwind CSS
+- Sanity CMS as the content source
 
 ## Getting Started
 
@@ -19,111 +19,131 @@ npm install
 
 ### 2. Configure environment variables
 
-Copy `.env.example` to `.env.local` and fill in your Sanity project credentials:
+Copy `.env.example` to `.env.local` and fill in your site settings:
 
 ```bash
 cp .env.example .env.local
 ```
 
 Required variables:
-```
+
+```env
 NEXT_PUBLIC_SANITY_PROJECT_ID=your_project_id
 NEXT_PUBLIC_SANITY_DATASET=production
-SANITY_API_TOKEN=your_token
+NEXT_PUBLIC_SANITY_API_VERSION=2024-01-01
 NEXT_PUBLIC_SITE_URL=https://salientrecovery.ie
 NEXT_PUBLIC_DEFAULT_LOCALE=en
+SANITY_API_TOKEN=
 ```
 
-### 3. Set up Sanity project
+`SANITY_API_TOKEN` is optional for the public site. Leave it unset unless you add draft or private server-side Sanity access.
 
-1. Create a project at [sanity.io](https://sanity.io)
-2. Add the project ID and dataset to your `.env.local`
-3. Run the Sanity Studio:
-
-```bash
-npx sanity dev
-```
-
-### 4. Run the development server
+### 3. Run the development server
 
 ```bash
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) — redirects to `/en` by default.
+The site runs on `http://localhost:3000` and redirects `/` to `/en`.
+
+## Sanity Studio
+
+Sanity Studio has been extracted into a separate project at `C:\SALIENT-STUDIO`.
+
+- Public site repo: `C:\salient-recovery`
+- Studio repo: `C:\SALIENT-STUDIO`
+
+Run Studio from the separate repo:
+
+```bash
+cd C:\SALIENT-STUDIO
+npm run dev
+```
 
 ## Project Structure
 
-```
+```text
 src/
   app/
-    [locale]/         # All locale-aware pages
-      page.tsx        # Home
-      platform/       # Platform section + sub-pages
-      how-it-works/
-      sectors/
-      resources/
-      about/
-      contact/
-    layout.tsx        # Root layout (redirects to /en)
+    [locale]/
   components/
-    layout/           # Header, Footer
-    content/          # LocaleSwitch, PortableText
-    ui/               # PageHero, SectionHeader, FeatureBlock, etc.
   lib/
-    i18n.ts           # Translation helpers
-    types.ts          # TypeScript interfaces
+    i18n.ts
+    types.ts
+    sanity/
+      client.ts
+      queries.ts
   styles/
-    globals.css       # Global styles + CSS variables
-
-sanity/
-  schemas/            # All content schemas
-  client.ts           # Sanity client
-  queries.ts          # GROQ queries
-  sanity.config.ts    # Studio configuration
 ```
 
-## Pages
+## Routes
 
-| Route | Description |
-|-------|-------------|
-| `/` | Redirects to `/en` |
-| `/[locale]` | Home page |
-| `/[locale]/platform` | Platform overview |
-| `/[locale]/platform/timeline` | Resident timeline |
-| `/[locale]/platform/forms` | Form management |
-| `/[locale]/platform/facility-mapping` | Facility hierarchy |
-| `/[locale]/platform/audit-compliance` | Audit & compliance |
-| `/[locale]/how-it-works` | Workflow diagrams |
-| `/[locale]/sectors` | Sector-specific pages |
-| `/[locale]/resources` | Articles, signals, digest |
-| `/[locale]/resources/[slug]` | Resource detail |
-| `/[locale]/about` | About Salient Recovery |
-| `/[locale]/contact` | Contact information |
+- `/`
+- `/[locale]`
+- `/[locale]/platform`
+- `/[locale]/platform/timeline`
+- `/[locale]/platform/forms`
+- `/[locale]/platform/facility-mapping`
+- `/[locale]/platform/audit-compliance`
+- `/[locale]/how-it-works`
+- `/[locale]/sectors`
+- `/[locale]/resources`
+- `/[locale]/resources/[slug]`
+- `/[locale]/about`
+- `/[locale]/contact`
 
-## Localisation
+## Docker Deployment
 
-Supported locales: `en` (English), `ie` (Irish)
+This repo is configured for standalone Next.js Docker deployment.
 
-All content is served from Sanity with locale-aware fields (`localeString`, `localeText`, `localeBlock`). The `t()` helper in `src/lib/i18n.ts` handles locale selection with English fallback.
+### Prepare deploy environment
 
-## Content Model
+Create a server-side env file from `.env.docker.example`:
 
-The system uses a draft → review → publish flow for external content:
+```bash
+cp .env.docker.example .env
+```
 
-- `externalSignal` — requires `isReviewed: true` before appearing on site
-- `researchPaperSummary` — same `isReviewed` gate
-- `policyUpdate` — same `isReviewed` gate
+Required values:
 
-All content ingested as draft. Manual reviewer control. No auto-publish.
+```env
+NEXT_PUBLIC_SANITY_PROJECT_ID=your_project_id
+NEXT_PUBLIC_SANITY_DATASET=production
+NEXT_PUBLIC_SANITY_API_VERSION=2024-01-01
+NEXT_PUBLIC_SITE_URL=https://your-domain.example
+NEXT_PUBLIC_DEFAULT_LOCALE=en
+SANITY_API_TOKEN=
+```
 
-## Design System
+The public Sanity variables are required at both build time and runtime because the app prerenders content during `next build`.
 
-Defined in `tailwind.config.ts`:
+### Build and run with Docker Compose
 
-- **Primary**: Deep institutional blue (`#1e3c66`)
-- **Surface**: Off-white (`#F7F5F2`) 
-- **Ink**: Dark charcoal text (`#1C1C1C`)
-- **Fonts**: Libre Baskerville (headings), IBM Plex Sans (body), IBM Plex Mono (labels)
+```bash
+docker compose --env-file .env up -d --build
+```
 
-No gradients. No marketing language. No stock imagery.
+### Build and run with plain Docker
+
+```bash
+docker build \
+  --build-arg NEXT_PUBLIC_SANITY_PROJECT_ID=$NEXT_PUBLIC_SANITY_PROJECT_ID \
+  --build-arg NEXT_PUBLIC_SANITY_DATASET=$NEXT_PUBLIC_SANITY_DATASET \
+  --build-arg NEXT_PUBLIC_SANITY_API_VERSION=$NEXT_PUBLIC_SANITY_API_VERSION \
+  --build-arg NEXT_PUBLIC_SITE_URL=$NEXT_PUBLIC_SITE_URL \
+  --build-arg NEXT_PUBLIC_DEFAULT_LOCALE=$NEXT_PUBLIC_DEFAULT_LOCALE \
+  -t salient-recovery:latest .
+
+docker run -d \
+  --name salient-recovery \
+  --restart unless-stopped \
+  -p 3000:3000 \
+  --env-file .env \
+  salient-recovery:latest
+```
+
+### VPS Notes
+
+- Put Nginx, Caddy, or another reverse proxy in front of port `3000`.
+- Terminate TLS at the reverse proxy.
+- Rebuild and redeploy the image when Sanity content changes if you rely on prerendered output.
