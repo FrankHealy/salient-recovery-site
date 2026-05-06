@@ -1,5 +1,7 @@
 node_modules
-next
+.next
+.next-dev.log
+.next-dev.err.log
 dist
 .env
 .env.local
