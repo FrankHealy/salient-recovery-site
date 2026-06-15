@@ -15,6 +15,10 @@ interface Props {
   params: { locale: string };
 }
 
+// Locale routes are statically generated, then refreshed from Sanity at most
+// one minute after a published content change is requested by a visitor.
+export const revalidate = 60;
+
 export async function generateStaticParams() {
   return [{ locale: 'en' }, { locale: 'ie' }];
 }

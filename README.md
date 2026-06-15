@@ -38,6 +38,10 @@ SANITY_API_TOKEN=
 
 `SANITY_API_TOKEN` is optional for the public site. Leave it unset unless you add draft or private server-side Sanity access.
 
+Published Sanity content is revalidated by the website every 60 seconds. The
+`/debug/sanity` route bypasses the Next.js data cache and displays the runtime
+project ID, dataset, fetch mode, and published navigation labels.
+
 ### 3. Run the development server
 
 ```bash
