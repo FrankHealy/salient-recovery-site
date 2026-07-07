@@ -23,6 +23,106 @@ export interface SiteSettings {
   linkedinUrl?: string;
 }
 
+export interface ProductScreenshot {
+  _id: string;
+  title: LocaleString;
+  image?: { asset?: { url?: string } };
+  alt: LocaleString;
+  caption?: LocaleText;
+  moduleLabel?: LocaleString;
+  moduleReference?: {
+    _id?: string;
+    title?: LocaleString;
+    functionalSlug?: string;
+    businessOverview?: LocaleText;
+    featureList?: Partial<Record<Locale, string[]>>;
+  };
+  displayOrder?: number;
+  isFeatured?: boolean;
+  carouselGroup?: string;
+  deviceType?: 'Desktop' | 'Tablet';
+}
+
+export interface ProductModule {
+  _id: string;
+  title: LocaleString;
+  slug?: { current?: string };
+  functionalSlug?: string;
+  summary: LocaleText;
+  businessOverview?: LocaleText;
+  featureList?: Partial<Record<Locale, string[]>>;
+  typicalWorkflow?: Partial<Record<Locale, string[]>>;
+  relatedModules?: ProductModule[];
+  usesPlatformCapabilities?: PlatformCapability[];
+  heroImage?: { asset?: { url?: string } };
+  heroScreenshot?: { asset?: { url?: string } } | ProductScreenshot;
+  displayOrder?: number;
+  ctaLabel?: LocaleString;
+  ctaLink?: string;
+}
+
+export interface PlatformCapability {
+  _id: string;
+  capabilityId?: { current?: string };
+  title: LocaleString;
+  shortDescription: LocaleText;
+  technicalDetail?: LocaleText;
+  category: string;
+  order?: number;
+}
+
+export interface ProductLinePage {
+  _id: string;
+  title: LocaleString;
+  slug?: { current?: string };
+  heroStatement: LocaleText;
+  overview?: LocaleText;
+  heroImage?: { asset?: { url?: string } };
+  relatedModules?: ProductModule[];
+  ctaLabel?: LocaleString;
+  ctaLink?: string;
+  order?: number;
+}
+
+export interface ProblemCard {
+  _id: string;
+  title: LocaleString;
+  description: LocaleText;
+  displayOrder?: number;
+}
+
+export interface Differentiator {
+  _id: string;
+  title: LocaleString;
+  description: LocaleText;
+  displayOrder?: number;
+}
+
+export interface MaturityPoint {
+  _id: string;
+  title: LocaleString;
+  description: LocaleText;
+  displayOrder?: number;
+}
+
+export interface HomepageSettings {
+  _id: string;
+  heroHeadline?: LocaleString;
+  heroSubheadline?: LocaleText;
+  screenshotCarousel?: ProductScreenshot[];
+  productModules?: ProductModule[];
+  problemCards?: ProblemCard[];
+  differentiators?: Differentiator[];
+  maturityPoints?: MaturityPoint[];
+  ctaHeadline?: LocaleString;
+  ctaText?: LocaleText;
+  ctaEmail?: string;
+  primaryCtaLabel?: LocaleString;
+  primaryCtaLink?: string;
+  secondaryCtaLabel?: LocaleString;
+  secondaryCtaLink?: string;
+}
+
 // ─── Navigation ────────────────────────────────────────────────────────────────
 export interface NavChild {
   label: LocaleString;
@@ -37,32 +137,37 @@ export interface NavItem {
   children?: NavChild[];
 }
 
-// ─── Platform Feature ──────────────────────────────────────────────────────────
-export type SystemEntity = 'resident' | 'unit' | 'programme' | 'event' | 'incident' | 'audit' | 'form' | 'facility';
+// ─── Module Capability (Sanity type: platformFeature) ─────────────────────────
+export type FunctionalModuleSlug =
+  | 'admissions' | 'residents' | 'clinical-assessments' | 'group-therapy' | 'incident-management'
+  | 'timeline' | 'care-planning' | 'community-services' | 'reports';
 
 export interface PlatformFeature {
   _id: string;
   featureId: { current: string };
   title: LocaleString;
-  shortDescription: LocaleText;
-  associatedEntity: SystemEntity;
+  businessValueSummary: LocaleText;
+  shortDescription?: LocaleText;
+  associatedModule: FunctionalModuleSlug;
   capabilities?: { label: LocaleString }[];
-  regulatoryRelevance?: string[];
   order?: number;
 }
 
 // ─── Workflow Step ─────────────────────────────────────────────────────────────
-export type WorkflowType = 'admission' | 'incident' | 'audit' | 'programme' | 'discharge' | 'onboarding';
+export type JourneyStage =
+  | 'admission' | 'assessment' | 'resident-management' | 'daily-operations' | 'group-therapy'
+  | 'incident-reporting' | 'progress-monitoring' | 'discharge' | 'community-follow-up';
 export type ActorType = 'clinician' | 'key-worker' | 'manager' | 'administrator' | 'system' | 'auditor';
 
 export interface WorkflowStep {
   _id: string;
   stepNumber: number;
-  workflowType: WorkflowType;
+  journeyStage: JourneyStage;
   title: LocaleString;
   description: LocaleText;
   actor: ActorType;
   systemAction: LocaleString;
+  relatedModule?: { _id?: string; title?: LocaleString; functionalSlug?: string };
 }
 
 // ─── Sector ────────────────────────────────────────────────────────────────────
@@ -73,6 +178,7 @@ export interface SectorPage {
   summary: LocaleText;
   regulatoryContext: LocaleText;
   applicableFeatures?: PlatformFeature[];
+  applicablePlatformCapabilities?: PlatformCapability[];
   order?: number;
 }
 

@@ -1,5 +1,6 @@
-// src/components/ui/PageHero.tsx
+// src/components/ui/shared.tsx
 import type { ReactNode } from 'react';
+import Link from 'next/link';
 
 interface PageHeroProps {
   eyebrow?: string;
@@ -32,7 +33,6 @@ export function PageHero({ eyebrow, heading, statement, children, constrained = 
   );
 }
 
-// src/components/ui/SectionHeader.tsx
 interface SectionHeaderProps {
   eyebrow?: string;
   heading: string;
@@ -61,7 +61,6 @@ export function SectionHeader({ eyebrow, heading, body, align = 'left' }: Sectio
   );
 }
 
-// src/components/ui/FeatureBlock.tsx
 interface FeatureBlockProps {
   entity: string;
   title: string;
@@ -75,9 +74,7 @@ export function FeatureBlock({ entity, title, description, capabilities, regulat
     <div className="border border-surface-border rounded bg-surface-base p-6 flex flex-col gap-4 hover:border-primary-300 transition-colors duration-200">
       <div className="flex items-start justify-between gap-3">
         <div>
-          <span className="font-mono text-2xs uppercase tracking-widest text-ink-muted">
-            {entity}
-          </span>
+          <span className="font-mono text-2xs uppercase tracking-widest text-ink-muted">{entity}</span>
           <h3 className="font-serif text-lg text-primary-800 mt-1">{title}</h3>
         </div>
       </div>
@@ -105,9 +102,6 @@ export function FeatureBlock({ entity, title, description, capabilities, regulat
   );
 }
 
-// src/components/ui/ResourceCard.tsx
-import Link from 'next/link';
-
 interface ResourceCardProps {
   slug: string;
   title: string;
@@ -128,20 +122,13 @@ const CATEGORY_LABELS: Record<string, string> = {
 
 export function ResourceCard({ slug, title, summary, category, publishedAt, readingTime, locale }: ResourceCardProps) {
   return (
-    <Link
-      href={`/${locale}/resources/${slug}`}
-      className="block border border-surface-border rounded p-5 hover:border-primary-300 transition-colors duration-200 group"
-    >
+    <Link href={`/${locale}/resources/${slug}`} className="block border border-surface-border rounded p-5 hover:border-primary-300 transition-colors duration-200 group">
       <div className="flex items-center gap-2 mb-3">
-        <span className="font-mono text-2xs uppercase tracking-widest text-ink-muted">
-          {CATEGORY_LABELS[category] ?? category}
-        </span>
+        <span className="font-mono text-2xs uppercase tracking-widest text-ink-muted">{CATEGORY_LABELS[category] ?? category}</span>
         {publishedAt && (
           <>
             <span className="text-surface-border">·</span>
-            <span className="font-mono text-2xs text-ink-muted">
-              {new Date(publishedAt).toLocaleDateString('en-IE', { year: 'numeric', month: 'short' })}
-            </span>
+            <span className="font-mono text-2xs text-ink-muted">{new Date(publishedAt).toLocaleDateString('en-IE', { year: 'numeric', month: 'short' })}</span>
           </>
         )}
         {readingTime && (
@@ -151,15 +138,12 @@ export function ResourceCard({ slug, title, summary, category, publishedAt, read
           </>
         )}
       </div>
-      <h3 className="font-serif text-base text-primary-800 leading-snug group-hover:text-primary-600 transition-colors">
-        {title}
-      </h3>
+      <h3 className="font-serif text-base text-primary-800 leading-snug group-hover:text-primary-600 transition-colors">{title}</h3>
       <p className="mt-2 text-sm text-ink-secondary leading-relaxed line-clamp-2">{summary}</p>
     </Link>
   );
 }
 
-// src/components/ui/ExternalSignalCard.tsx
 interface ExternalSignalCardProps {
   title: string;
   summary: string;
@@ -181,21 +165,15 @@ const TOPIC_LABELS: Record<string, string> = {
   'policy': 'Policy',
 };
 
-export function ExternalSignalCard({
-  title, summary, sourceName, sourceUrl, publishedDate, topic, region, relevanceNote,
-}: ExternalSignalCardProps) {
+export function ExternalSignalCard({ title, summary, sourceName, sourceUrl, publishedDate, topic, region, relevanceNote }: ExternalSignalCardProps) {
   return (
     <article className="border border-surface-border rounded p-5 flex flex-col gap-3">
       <div className="flex flex-wrap items-center gap-2">
         <span className="font-mono text-2xs uppercase tracking-widest text-ink-muted bg-surface-raised px-2 py-0.5 rounded border border-surface-border">
           {TOPIC_LABELS[topic] ?? topic}
         </span>
-        {region && (
-          <span className="font-mono text-2xs uppercase tracking-widest text-ink-muted">{region}</span>
-        )}
-        <span className="font-mono text-2xs text-ink-muted ml-auto">
-          {new Date(publishedDate).toLocaleDateString('en-IE', { year: 'numeric', month: 'short', day: 'numeric' })}
-        </span>
+        {region && <span className="font-mono text-2xs uppercase tracking-widest text-ink-muted">{region}</span>}
+        <span className="font-mono text-2xs text-ink-muted ml-auto">{new Date(publishedDate).toLocaleDateString('en-IE', { year: 'numeric', month: 'short', day: 'numeric' })}</span>
       </div>
       <div>
         <h3 className="font-serif text-base text-primary-800 leading-snug">{title}</h3>
@@ -208,12 +186,7 @@ export function ExternalSignalCard({
       )}
       <div className="flex items-center justify-between pt-1">
         <span className="text-xs text-ink-muted font-mono">{sourceName}</span>
-        <a
-          href={sourceUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-xs font-medium text-primary-600 hover:text-primary-800 transition-colors"
-        >
+        <a href={sourceUrl} target="_blank" rel="noopener noreferrer" className="text-xs font-medium text-primary-600 hover:text-primary-800 transition-colors">
           View source →
         </a>
       </div>
@@ -221,7 +194,6 @@ export function ExternalSignalCard({
   );
 }
 
-// src/components/ui/ComplianceBadge.tsx
 interface ComplianceBadgeProps {
   framework: string;
   issuingBody?: string;
@@ -234,9 +206,7 @@ export function ComplianceBadge({ framework, issuingBody, statement, lastReviewe
     <div className="border-l-2 border-primary-600 pl-4 py-1">
       <div className="flex flex-wrap items-baseline gap-2 mb-1">
         <span className="font-mono text-xs font-medium text-primary-700">{framework}</span>
-        {issuingBody && (
-          <span className="text-xs text-ink-muted">/ {issuingBody}</span>
-        )}
+        {issuingBody && <span className="text-xs text-ink-muted">/ {issuingBody}</span>}
       </div>
       <p className="text-sm text-ink-secondary leading-relaxed">{statement}</p>
       {lastReviewedDate && (

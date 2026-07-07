@@ -1,0 +1,71 @@
+export const HOMEPAGE_SETTINGS_FRAGMENT = `
+  _id,
+  heroHeadline,
+  heroSubheadline,
+  screenshotCarousel[]->{
+    _id,
+    title,
+    image{asset->{url}},
+    alt,
+    caption,
+    moduleLabel,
+    moduleReference->{ _id, title, functionalSlug, businessOverview, featureList },
+    displayOrder,
+    isFeatured,
+    carouselGroup,
+    deviceType
+  },
+  productModules[]->{
+    _id,
+    title,
+    slug,
+    functionalSlug,
+    summary,
+    businessOverview,
+    featureList,
+    heroImage{asset->{url}},
+    displayOrder,
+    ctaLabel,
+    ctaLink
+  },
+  problemCards[]->{
+    _id,
+    title,
+    description,
+    displayOrder
+  },
+  differentiators[]->{
+    _id,
+    title,
+    description,
+    displayOrder
+  },
+  maturityPoints[]->{
+    _id,
+    title,
+    description,
+    displayOrder
+  },
+  ctaHeadline,
+  ctaText,
+  ctaEmail,
+  primaryCtaLabel,
+  primaryCtaLink,
+  secondaryCtaLabel,
+  secondaryCtaLink
+`;
+
+export const PRODUCT_LINE_PAGES_QUERY = `
+  *[_type == "productLinePage"] | order(order asc) {
+    _id,
+    title,
+    slug,
+    heroStatement,
+    overview,
+    heroImage{asset->{url}},
+    relatedModules[]->{ _id, title, functionalSlug },
+    ctaLabel,
+    ctaLink,
+    order
+  }
+`;

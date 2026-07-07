@@ -15,13 +15,9 @@ interface Props {
   params: { locale: string };
 }
 
-// Locale routes are statically generated, then refreshed from Sanity at most
-// one minute after a published content change is requested by a visitor.
+// Locale routes are refreshed from Sanity at most one minute after a
+// published content change is requested by a visitor.
 export const revalidate = 60;
-
-export async function generateStaticParams() {
-  return [{ locale: 'en' }, { locale: 'ie' }];
-}
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const settings: SiteSettings | null = await client.fetch(SITE_SETTINGS_QUERY);
@@ -31,7 +27,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       template: `%s — ${settings?.siteName?.en ?? 'Salient Recovery'}`,
     },
     description: settings?.siteTagline?.en ?? 'Clinical operations platform for regulated recovery services.',
-    metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? 'https://salientrecovery.ie'),
+    metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? 'https://salientrecovery.com'),
   };
 }
 
@@ -56,7 +52,7 @@ export default async function RootLayout({ children, params }: Props) {
       <body className="flex flex-col min-h-dvh bg-surface-base text-ink-primary antialiased">
         <Header navItems={navItems} locale={locale as import('@/lib/i18n').Locale} settings={settings} />
         <main className="flex-1">{children}</main>
-        <Footer settings={settings} locale={locale as import('@/lib/i18n').Locale} />
+        <Footer navItems={navItems} settings={settings} locale={locale as import('@/lib/i18n').Locale} />
       </body>
     </html>
   );

@@ -70,9 +70,9 @@ export default async function SectorsPage({ params: { locale } }: Props) {
                         {sector.applicableFeatures.map((feature) => (
                           <FeatureBlock
                             key={feature._id}
-                            entity={feature.associatedEntity}
+                            entity={feature.associatedModule}
                             title={t(feature.title, locale)}
-                            description={t(feature.shortDescription, locale)}
+                            description={t(feature.businessValueSummary, locale) || t(feature.shortDescription, locale)}
                           />
                         ))}
                       </div>
@@ -80,6 +80,19 @@ export default async function SectorsPage({ params: { locale } }: Props) {
                   ) : (
                     <div className="border border-dashed border-surface-border rounded p-6 text-sm text-ink-muted">
                       {locale === 'ie' ? 'Gnéithe le cur leis sa CMS' : 'Features to be added in CMS'}
+                    </div>
+                  )}
+
+                  {sector.applicablePlatformCapabilities && sector.applicablePlatformCapabilities.length > 0 && (
+                    <div className="mt-6 flex flex-wrap gap-2">
+                      {sector.applicablePlatformCapabilities.map((cap) => (
+                        <span
+                          key={cap._id}
+                          className="font-mono text-2xs uppercase tracking-wide px-2 py-1 bg-surface-raised border border-surface-border rounded text-ink-muted"
+                        >
+                          {t(cap.title, locale)}
+                        </span>
+                      ))}
                     </div>
                   )}
                 </div>

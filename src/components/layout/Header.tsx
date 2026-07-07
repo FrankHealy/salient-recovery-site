@@ -7,7 +7,7 @@ import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import type { NavItem, SiteSettings } from '@/lib/types';
 import type { Locale } from '@/lib/i18n';
-import { t, LOCALE_LABELS, LOCALES } from '@/lib/i18n';
+import { t } from '@/lib/i18n';
 import LocaleSwitch from '@/components/content/LocaleSwitch';
 
 interface Props {
@@ -18,6 +18,7 @@ interface Props {
 
 export default function Header({ navItems, locale, settings }: Props) {
   const [open, setOpen] = useState(false);
+  const [openMobileItem, setOpenMobileItem] = useState<string | null>(null);
   const pathname = usePathname();
 
   const siteName = t(settings?.siteName, locale) || 'Salient Recovery';
@@ -27,53 +28,81 @@ export default function Header({ navItems, locale, settings }: Props) {
     return pathname === localePrefixed || pathname.startsWith(`${localePrefixed}/`);
   };
 
+  // Contact already has its own dedicated CTA button — don't duplicate it as a flat nav link.
+  const primaryNavItems = navItems.filter((item) => item.href !== '/contact');
+
   return (
     <header className="border-b border-surface-border bg-surface-base/95 backdrop-blur-sm sticky top-0 z-40">
       <div className="container-site">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-16 gap-4">
 
           {/* Wordmark */}
-          <Link
-            href={`/${locale}`}
-            className="flex items-center gap-2 group"
-          >
+          <Link href={`/${locale}`} className="flex items-center gap-2 shrink-0">
             <Image
               src="/salient-recovery-logo.svg"
               alt={siteName}
               width={220}
               height={56}
               priority
-              className="h-10 w-auto sm:h-11"
+              className="h-9 w-auto sm:h-10"
             />
             <span className="sr-only">{siteName}</span>
-            <span
-              className="hidden sm:inline-block font-mono text-2xs text-ink-muted uppercase tracking-widest leading-none
-                         border border-surface-border rounded px-1 py-0.5 group-hover:border-primary-300 transition-colors duration-200"
-            >
-              Platform
-            </span>
           </Link>
 
           {/* Desktop nav */}
-          <nav className="hidden md:flex items-center gap-1" aria-label="Main navigation">
-            {navItems.map((item) => (
-              <Link
-                key={item._id}
-                href={`/${locale}${item.href}`}
-                className={`
-                  px-3 py-1.5 text-sm font-sans font-medium rounded transition-colors duration-200
-                  ${isActive(item.href)
-                    ? 'text-primary-800 bg-primary-50'
-                    : 'text-ink-secondary hover:text-ink-primary hover:bg-surface-raised'}
-                `}
-              >
-                {t(item.label, locale)}
-              </Link>
+          <nav className="hidden md:flex items-center gap-0.5 min-w-0" aria-label="Main navigation">
+            {primaryNavItems.map((item) => (
+              item.children && item.children.length > 0 ? (
+                <div key={item._id} className="relative group">
+                  <Link
+                    href={`/${locale}${item.href}`}
+                    className={`
+                      inline-flex items-center gap-1 px-2 py-1.5 text-sm font-sans font-medium rounded whitespace-nowrap transition-colors duration-200
+                      ${isActive(item.href)
+                        ? 'text-primary-800 bg-primary-50'
+                        : 'text-ink-secondary hover:text-ink-primary hover:bg-surface-raised'}
+                    `}
+                  >
+                    {t(item.label, locale)}
+                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true">
+                      <path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </Link>
+                  <div
+                    className="invisible absolute left-0 top-full z-50 min-w-[220px] rounded border border-surface-border
+                               bg-surface-base py-2 opacity-0 shadow-md transition-[opacity,visibility] duration-150
+                               group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100"
+                  >
+                    {item.children.map((child) => (
+                      <Link
+                        key={child.href}
+                        href={`/${locale}${child.href}`}
+                        className="block px-4 py-2 text-sm text-ink-secondary hover:bg-surface-raised hover:text-ink-primary transition-colors"
+                      >
+                        {t(child.label, locale)}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              ) : (
+                <Link
+                  key={item._id}
+                  href={`/${locale}${item.href}`}
+                  className={`
+                    px-2 py-1.5 text-sm font-sans font-medium rounded whitespace-nowrap transition-colors duration-200
+                    ${isActive(item.href)
+                      ? 'text-primary-800 bg-primary-50'
+                      : 'text-ink-secondary hover:text-ink-primary hover:bg-surface-raised'}
+                  `}
+                >
+                  {t(item.label, locale)}
+                </Link>
+              )
             ))}
           </nav>
 
           {/* Right actions */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 shrink-0">
             <LocaleSwitch currentLocale={locale} />
 
             <Link
@@ -110,20 +139,52 @@ export default function Header({ navItems, locale, settings }: Props) {
       {open && (
         <div className="md:hidden border-t border-surface-border bg-surface-base">
           <div className="container-site py-4 flex flex-col gap-1">
-            {navItems.map((item) => (
-              <Link
-                key={item._id}
-                href={`/${locale}${item.href}`}
-                onClick={() => setOpen(false)}
-                className={`
-                  px-3 py-2.5 text-sm font-medium rounded
-                  ${isActive(item.href)
-                    ? 'text-primary-800 bg-primary-50'
-                    : 'text-ink-secondary hover:text-ink-primary hover:bg-surface-raised'}
-                `}
-              >
-                {t(item.label, locale)}
-              </Link>
+            {primaryNavItems.map((item) => (
+              <div key={item._id}>
+                <div className="flex items-center">
+                  <Link
+                    href={`/${locale}${item.href}`}
+                    onClick={() => setOpen(false)}
+                    className={`
+                      flex-1 px-3 py-2.5 text-sm font-medium rounded
+                      ${isActive(item.href)
+                        ? 'text-primary-800 bg-primary-50'
+                        : 'text-ink-secondary hover:text-ink-primary hover:bg-surface-raised'}
+                    `}
+                  >
+                    {t(item.label, locale)}
+                  </Link>
+                  {item.children && item.children.length > 0 && (
+                    <button
+                      onClick={() => setOpenMobileItem(openMobileItem === item._id ? null : item._id)}
+                      className="p-2.5 text-ink-secondary"
+                      aria-label={locale === 'ie' ? 'Leathnaigh' : 'Expand'}
+                      aria-expanded={openMobileItem === item._id}
+                    >
+                      <svg
+                        width="12" height="12" viewBox="0 0 10 10" fill="none" aria-hidden="true"
+                        className={`transition-transform ${openMobileItem === item._id ? 'rotate-180' : ''}`}
+                      >
+                        <path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    </button>
+                  )}
+                </div>
+                {item.children && item.children.length > 0 && openMobileItem === item._id && (
+                  <div className="ml-3 flex flex-col gap-0.5 border-l border-surface-border pl-3 py-1">
+                    {item.children.map((child) => (
+                      <Link
+                        key={child.href}
+                        href={`/${locale}${child.href}`}
+                        onClick={() => setOpen(false)}
+                        className="px-3 py-2 text-sm text-ink-secondary hover:text-ink-primary rounded hover:bg-surface-raised"
+                      >
+                        {t(child.label, locale)}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
             ))}
             <div className="mt-3 pt-3 border-t border-surface-border">
               <Link

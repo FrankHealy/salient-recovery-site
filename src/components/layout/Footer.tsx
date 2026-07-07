@@ -1,24 +1,16 @@
 // src/components/layout/Footer.tsx
 import Link from 'next/link';
-import type { SiteSettings } from '@/lib/types';
+import type { NavItem, SiteSettings } from '@/lib/types';
 import type { Locale } from '@/lib/i18n';
 import { t } from '@/lib/i18n';
 
 interface Props {
+  navItems: NavItem[];
   settings: SiteSettings | null;
   locale: Locale;
 }
 
-const footerNav = [
-  { labelEn: 'Platform', labelIe: 'Ardán', href: '/platform' },
-  { labelEn: 'How it Works', labelIe: 'Conas a Oibríonn', href: '/how-it-works' },
-  { labelEn: 'Sectors', labelIe: 'Earnálacha', href: '/sectors' },
-  { labelEn: 'Resources', labelIe: 'Acmhainní', href: '/resources' },
-  { labelEn: 'About', labelIe: 'Faoi', href: '/about' },
-  { labelEn: 'Contact', labelIe: 'Teagmháil', href: '/contact' },
-];
-
-export default function Footer({ settings, locale }: Props) {
+export default function Footer({ navItems, settings, locale }: Props) {
   const statement = t(settings?.footerStatement, locale);
   const year = new Date().getFullYear();
 
@@ -55,13 +47,13 @@ export default function Footer({ settings, locale }: Props) {
               {locale === 'ie' ? 'Nascleanúint' : 'Navigation'}
             </p>
             <nav className="flex flex-col gap-2">
-              {footerNav.map((item) => (
+              {navItems.map((item) => (
                 <Link
-                  key={item.href}
+                  key={item._id}
                   href={`/${locale}${item.href}`}
                   className="text-sm hover:text-ink-inverse transition-colors duration-200"
                 >
-                  {locale === 'ie' ? item.labelIe : item.labelEn}
+                  {t(item.label, locale)}
                 </Link>
               ))}
             </nav>
