@@ -1,0 +1,56 @@
+name: Check configured host access
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/check-host-access.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - name: Record configured credential names
+        env:
+          GH_TOKEN: ${{ github.token }}
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+          SSH_USER: ${{ secrets.SSH_USER }}
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          SSH_KEY: ${{ secrets.SSH_KEY }}
+          HOST: ${{ secrets.HOST }}
+          USER: ${{ secrets.USER }}
+          DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
+          DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
+          DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
+          VPS_HOST: ${{ secrets.VPS_HOST }}
+          VPS_USER: ${{ secrets.VPS_USER }}
+          VPS_SSH_KEY: ${{ secrets.VPS_SSH_KEY }}
+          PRODUCTION_SSH_HOST: ${{ secrets.PRODUCTION_SSH_HOST }}
+          PRODUCTION_SSH_USER: ${{ secrets.PRODUCTION_SSH_USER }}
+          PRODUCTION_SSH_PRIVATE_KEY: ${{ secrets.PRODUCTION_SSH_PRIVATE_KEY }}
+          HETZNER_API_TOKEN: ${{ secrets.HETZNER_API_TOKEN }}
+          HCLOUD_TOKEN: ${{ secrets.HCLOUD_TOKEN }}
+        run: |
+          set -e
+          report="$RUNNER_TEMP/host-access-check.txt"
+          echo "checked_at=$(date -u +%FT%TZ)" > "$report"
+          for name in SSH_HOST SSH_USER SSH_PRIVATE_KEY SSH_KEY HOST USER DEPLOY_HOST DEPLOY_USER DEPLOY_KEY VPS_HOST VPS_USER VPS_SSH_KEY PRODUCTION_SSH_HOST PRODUCTION_SSH_USER PRODUCTION_SSH_PRIVATE_KEY HETZNER_API_TOKEN HCLOUD_TOKEN; do
+            if [[ -n "${!name}" ]]; then
+              echo "$name=configured"
+            else
+              echo "$name=missing"
+            fi
+          done >> "$report"
+          encoded=$(base64 -w0 "$report")
+          path='ops/host-access-check.txt'
+          existing_sha=$(gh api "repos/$GITHUB_REPOSITORY/contents/$path?ref=main" --jq .sha 2>/dev/null || true)
+          if [[ -n "$existing_sha" ]]; then
+            gh api --method PUT "repos/$GITHUB_REPOSITORY/contents/$path" -f message='Record host access configuration' -f content="$encoded" -f sha="$existing_sha" -f branch=main >/dev/null
+          else
+            gh api --method PUT "repos/$GITHUB_REPOSITORY/contents/$path" -f message='Record host access configuration' -f content="$encoded" -f branch=main >/dev/null
+          fi
